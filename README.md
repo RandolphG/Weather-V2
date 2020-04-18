@@ -1,4 +1,16 @@
 # README
+https://www.npmjs.com/package/xml2js
+https://stackoverflow.com/questions/37693982/how-to-fetch-xml-with-fetch-api
+https://api.met.no/weatherapi/documentation
+https://dev.to/flexdinesh/accessing-nested-objects-in-javascript--9m4
+https://css-tricks.com/everything-you-need-to-know-about-date-in-javascript/
+https://stackoverflow.com/questions/9398535/add-dynamic-key-value-pairs-to-javascript-array-or-hash-table
+
+
+https://soundcloud.com/hipdozer/goodge-new-horizon-pt-3
+
+TypeError: Cannot destructure property as it is undefined
+https://stackoverflow.com/questions/54744949/uncaught-typeerror-cannot-destructure-property-name-of-undefined-or-null
 
 ## What is this repository for?
 
@@ -8,7 +20,10 @@ It is a fork of a original repository which contains a coding exercise explained
 
 ## The task
 
-We want you to create a simple, but functional interface in React that displays the weather. It should be created from “scratch”, potentially using some bootstrap functionality you are comfortable with. In this interface it should be possible to select between three different cities (Oslo, Zagreb, Los Angeles) and you should be able to see the weather in real time, updating every 10 seconds, implement this in a way you see fit.
+We want you to create a simple, but functional interface in React that displays the weather. It should be created from “scratch”, potentially using some bootstrap functionality you are comfortable with. In this interface it should be possible to select between three different cities (`Oslo`, `Zagreb`, `Los Angeles`) and you should be able to see the weather in real time, updating every 10 seconds, implement this in a way you see fit.
+
+
+
 
 If the temperature is significantly cooler or warmer than normal for the selected city, there should be an indication somewhere on the page. The historical weather data doesn’t need to be acquired in real-time or from an external API.
 

@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+//noinspection CssNoGenericFontName
+.App {
+  text-align: center;
+  .container {
+    background: chartreuse;
+    padding: 16px;
+    box-sizing: border-box;
+    border: deeppink 2px solid;
+    background: linear-gradient(rgb(221, 136, 180), rgb(201, 0, 255), rgb(93, 12, 184), rgb(40, 47, 106));
+    font-family: "Fira Code Medium";
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+
+    .city-date {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .city {
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #4b0a37;
+      }
+      .date {
+      }
+    }
+    .current-temp {
+      font-size: 6rem;
+      font-weight: 500;
+      margin: 16px;
+      text-shadow: 2px 2px #333333;
+    }
+    .high-low {
+      padding: 4px;
+      border-radius: 3px;
+      background: #333333;      width: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      .high {
+        .temp-high {
+          color: #d961a6
+        }
+      }
+      .low {
+        .temp-low {
+          color: #d961a6
+        }
+      }
+    }
+    .wind-humidity {
+      padding: 4px;
+      border-radius: 3px;
+      background: #333333;
+      width: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .wind {
+        .mps-direction {
+          margin-left: 4px;
+          color: #d961a6
+        }
+      }
+      .humidity {
+        .percent {
+          margin-left: 4px;
+          color: #d961a6
+        }
+      }
+    }
+  }
+  .dialog{
+    margin-top: 16px;
+    .btn-open {
+      font-family: "Fira Code";
+      font-size: 1rem;
+      color:white;
+    }&:hover {
+           color: aqua;
+           font-size: 1rem;
+         }
+  }
+  .footer {
+    height: 100%;
+    color: #333333;
+  }
+}
+
+
