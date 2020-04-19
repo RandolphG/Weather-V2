@@ -8,22 +8,29 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+
 export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
   const [open, setOpen] = useState(false);
 
   const [selectCity, setSelectCity] = useState("zagreb");
 
   const handleChange = (event) => {
+    console.log("pressed");
     setSelectCity(event.target.value);
   };
   const handleClickOpen = () => {
+    console.log("pressed");
+
     setOpen(true);
   };
   const handleClose = (event) => {
+    console.log("pressed");
+
     setOpen(false);
   };
 
   const handleOk = (event) => {
+    console.log("pressed");
     setCity(selectCity);
     getWeatherInfoAction(selectCity);
     setOpen(false);
@@ -31,20 +38,16 @@ export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
 
   return (
     <div className="dialog">
+      {console.log("rendered")}
       <Button className="btn-open" onClick={handleClickOpen}>
         select city
       </Button>
-      <Dialog
-        disableBackdropClick
-        disableEscapeKeyDown
-        open={open}
-        onClose={handleClose}
-      >
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Choose a city</DialogTitle>
         <DialogContent>
           <form className={"container"}>
             <FormControl className={"form-control"}>
-              <InputLabel htmlFor="demo-dialog-native">City</InputLabel>
+              <InputLabel>City</InputLabel>
               <Select
                 native
                 value={selectCity}

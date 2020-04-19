@@ -2,7 +2,7 @@ import thunk from "redux-thunk";
 import { applyMiddleware, compose, createStore } from "redux";
 
 // -- reducers
-import reducers from "./reducers/weatherReducer";
+import reducers from "./reducers/reducers";
 // -- middleware
 const middleware = applyMiddleware(thunk);
 

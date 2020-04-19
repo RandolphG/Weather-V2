@@ -1,37 +1,38 @@
 import { location } from "../data/data";
-const XML = require("pixl-xml");
+
 /**
  * fetch api
  * @returns {function(*): Response | void}
  * @param city
  */
 export function fetchData(city) {
-  console.log("DISPATCHED argument passed : ", city);
-  if (!city || "undefined" || null) {
+  if (!city || "") {
     const selection = getNestedObject(location, ["default"]);
   }
   const selection = getNestedObject(location, [city]);
   const { latitude, longitude } = selection || {};
-  const long = longitude;
+  const lon = longitude;
   const lat = latitude;
-  console.log("OBJECT : ", selection);
 
   return async function (dispatch) {
-    const url = ` https://api.met.no/weatherapi/locationforecast/1.9/?lat=${lat}&lon=${long}`;
-    console.log(`URL : ${url}`);
-    await fetch(url)
-      .then((res) => {
-        if (res.error) {
-          throw res.error;
-          console.log(res.error);
+    const url = `https://weatherbit-v1-mashape.p.rapidapi.com/current?lang=en&lon=${lon}&lat=${lat}`;
+    await fetch(url, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
+        "x-rapidapi-key": "3433df2959msh22e9e7607844fa5p12cb6ejsne7179ae91a96",
+      },
+    })
+      .then((response) => {
+        if (response.error) {
+          throw response.error;
         }
-        return res.text();
+        return response.json();
       })
-      .then((result) => {
-        // dispatch the action using pixl-xml
-        dispatch({ type: "FETCH_DATA", payload: XML.parse(result) });
+      .then((data) => {
+        dispatch({ type: "FETCH_DATA", payload: data.data[0] });
       })
-      .catch((error) => console.log(error));
+      .catch((err) => {});
   };
 }
 
@@ -47,12 +48,3 @@ const getNestedObject = (nestedObj, pathArr) => {
     nestedObj
   );
 };
-
-// Handle HTTP errors since fetch won't.
-function handleErrors(response) {
-  if (!response.ok) {
-    console.log(response);
-    throw Error(response.statusText);
-  }
-  return response;
-}

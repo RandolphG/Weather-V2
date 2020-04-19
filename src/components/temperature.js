@@ -1,4 +1,4 @@
-import { avgs } from "./data/data";
+import { avgs } from "../data/data";
 import React from "react";
 
 const temperature = ({ temp, avgs, city, month }) => {

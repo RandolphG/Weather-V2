@@ -5,12 +5,20 @@ https://api.met.no/weatherapi/documentation
 https://dev.to/flexdinesh/accessing-nested-objects-in-javascript--9m4
 https://css-tricks.com/everything-you-need-to-know-about-date-in-javascript/
 https://stackoverflow.com/questions/9398535/add-dynamic-key-value-pairs-to-javascript-array-or-hash-table
-
-
+https://stackoverflow.com/questions/49563748/react-possible-to-change-scss-variable
+https://stackoverflow.com/questions/20288793/does-sass-support-adding-important-to-all-properties-in-a-mixin
+https://stackoverflow.com/questions/9560170/including-another-class-in-scss
 https://soundcloud.com/hipdozer/goodge-new-horizon-pt-3
-
+https://medium.com/@crunchtech/object-destructuring-best-practice-in-javascript-9c8794699a0d
+https://www.flaticon.com/search?word=sunset
+https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
+https://stackoverflow.com/questions/3848715/adjusting-kerning-in-css
+https://www.pluralsight.com/guides/change-page-background-color-each-route
 TypeError: Cannot destructure property as it is undefined
 https://stackoverflow.com/questions/54744949/uncaught-typeerror-cannot-destructure-property-name-of-undefined-or-null
+https://sass-lang.com/documentation/variables
+https://www.flaticon.com/search/2?word=sunset
+
 
 ## What is this repository for?
 

@@ -1,100 +1,81 @@
+@import "styles/dayLightTime";
+@import "styles/info";
+@import "styles/temperature";
+@import "styles/windInfo";
+@import "styles/dailogSelect";
+
+$normal-gradient: linear-gradient(rgb(245, 245, 245), rgb(203, 201, 201), rgb(153, 153, 153)) !important;
+$warm-gradient: linear-gradient(rgb(237, 168,111), rgb(239, 134, 101), rgb(218, 99, 101), rgb(208, 69,110)) !important;
+$cool-gradient: linear-gradient(rgb(92, 149, 204), rgb(81, 121, 190), rgb(66, 95, 161), rgb(56, 73, 142));
+
 body {
   margin: 0;
   overflow: hidden;
+}
+.App-warm{
+  background: $warm-gradient;
+}
+.App-cool{
+  background: $cool-gradient;
 }
 
 //noinspection CssNoGenericFontName
 .App {
   text-align: center;
-  .container {
-    background: chartreuse;
-    padding: 16px;
-    box-sizing: border-box;
-    border: deeppink 2px solid;
-    background: linear-gradient(rgb(221, 136, 180), rgb(201, 0, 255), rgb(93, 12, 184), rgb(40, 47, 106));
-    font-family: "Fira Code Medium";
-    min-height: 100vh;
+  .background {
+    background: $normal-gradient;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-
-    .city-date {
-      width: 80%;
+    box-sizing: border-box;
+    padding: 16px;
+    height: 100vh;
+    .container-normal {
+      background: $warm-gradient;
+      padding: 8px;
+      font-family: "Fira Code Medium";
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.98);
+    }
+    .container-hot {
+      padding: 8px;
+      height: 100%;
+      border-radius: 3px;
+      background: $warm-gradient;
+      font-family: "Fira Code Medium";
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      .city {
-        margin-bottom: 8px;
-        font-weight: 600;
-        color: #4b0a37;
-      }
-      .date {
-      }
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+      box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.35);
     }
-    .current-temp {
-      font-size: 6rem;
-      font-weight: 500;
-      margin: 16px;
-      text-shadow: 2px 2px #333333;
-    }
-    .high-low {
-      padding: 4px;
+    .container {
+      height: 100%;
+      padding: 8px;
       border-radius: 3px;
-      background: #333333;      width: 80%;
+      background: $normal-gradient;
+      font-family: "Fira Code Medium";
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      .high {
-        .temp-high {
-          color: #d961a6
-        }
-      }
-      .low {
-        .temp-low {
-          color: #d961a6
-        }
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      color: white;
+      @media screen and (min-width: 500px) {
+        text-align: center;
+        width: 59%;
+        padding: 50px;
+        align-items: center;
+        justify-content: space-around;
       }
     }
-    .wind-humidity {
-      padding: 4px;
-      border-radius: 3px;
-      background: #333333;
-      width: 80%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      .wind {
-        .mps-direction {
-          margin-left: 4px;
-          color: #d961a6
-        }
-      }
-      .humidity {
-        .percent {
-          margin-left: 4px;
-          color: #d961a6
-        }
-      }
-    }
-  }
-  .dialog{
-    margin-top: 16px;
-    .btn-open {
-      font-family: "Fira Code";
-      font-size: 1rem;
-      color:white;
-    }&:hover {
-           color: aqua;
-           font-size: 1rem;
-         }
-  }
-  .footer {
-    height: 100%;
-    color: #333333;
   }
 }
 
