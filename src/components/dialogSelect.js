@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -8,22 +8,25 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-const confirmBtns = ["cancel", "ok"];
 export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
+  const [selectCity, setSelectCity] = useState("zagreb");
+
   const handleChange = (event) => {
-    event.persist();
-    event.preventDefault();
-    setCity(event.target.value);
-    console.log("city selected");
+    setSelectCity(event.target.value);
   };
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = (event) => {
     setOpen(false);
-    getWeatherInfoAction(city);
-    console.log(`selected: ${city}`);
+  };
+
+  const handleOk = (event) => {
+    setCity(selectCity);
+    getWeatherInfoAction(selectCity);
+    setOpen(false);
   };
 
   return (
@@ -44,7 +47,7 @@ export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
               <InputLabel htmlFor="demo-dialog-native">City</InputLabel>
               <Select
                 native
-                value={city}
+                value={selectCity}
                 onChange={handleChange}
                 input={<Input />}
               >
@@ -56,11 +59,12 @@ export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
           </form>
         </DialogContent>
         <DialogActions>
-          {confirmBtns.map((item, idx) => (
-            <Button key={idx} onClick={handleClose} color="primary">
-              {item}
-            </Button>
-          ))}
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleOk} color="primary">
+            Ok
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
