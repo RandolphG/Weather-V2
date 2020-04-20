@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import sunshine from "../svg/sunshine.svg";
 import React from "react";
+import defaultImg from "../svg/weather/clear_sky.svg";
 
 const info = ({ weather, date, cityName }) => {
   return (
@@ -15,7 +15,7 @@ const info = ({ weather, date, cityName }) => {
           loop: Infinity,
         }}
         className="icon"
-        src={sunshine}
+        src={defaultImg}
       />
       <div className="info">
         <div className="city">{cityName && cityName.toUpperCase()}</div>

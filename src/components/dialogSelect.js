@@ -15,22 +15,16 @@ export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
   const [selectCity, setSelectCity] = useState("zagreb");
 
   const handleChange = (event) => {
-    console.log("pressed");
     setSelectCity(event.target.value);
   };
   const handleClickOpen = () => {
-    console.log("pressed");
-
     setOpen(true);
   };
   const handleClose = (event) => {
-    console.log("pressed");
-
     setOpen(false);
   };
 
   const handleOk = (event) => {
-    console.log("pressed");
     setCity(selectCity);
     getWeatherInfoAction(selectCity);
     setOpen(false);
@@ -38,7 +32,6 @@ export default function DialogSelect({ city, setCity, getWeatherInfoAction }) {
 
   return (
     <div className="dialog">
-      {console.log("rendered")}
       <Button className="btn-open" onClick={handleClickOpen}>
         select city
       </Button>

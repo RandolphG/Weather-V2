@@ -50,6 +50,8 @@ Feel free to use auto-generated boilerplate code. It needs to be written in Reac
 
 *An example weather API you can use: https://api.met.no/*
 
+// API appeared to be recently depreciated so instead I opted to use another Rapid Api repo.
+
 ## Nice to have
 
 - Usage of a distributed system for version control (preferably this one).

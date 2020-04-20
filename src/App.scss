@@ -1,4 +1,4 @@
-@import "styles/dayLightTime";
+@import "styles/dayTime";
 @import "styles/info";
 @import "styles/temperature";
 @import "styles/windInfo";
@@ -30,18 +30,6 @@ body {
     box-sizing: border-box;
     padding: 16px;
     height: 100vh;
-    .container-normal {
-      background: $warm-gradient;
-      padding: 8px;
-      font-family: "Fira Code Medium";
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: calc(10px + 2vmin);
-      color: white;
-      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.98);
-    }
     .container-hot {
       padding: 8px;
       height: 100%;
@@ -60,7 +48,7 @@ body {
       height: 100%;
       padding: 8px;
       border-radius: 3px;
-      background: $normal-gradient;
+      background: $cool-gradient;
       font-family: "Fira Code Medium";
       display: flex;
       flex-direction: column;

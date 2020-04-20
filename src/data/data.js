@@ -23,3 +23,27 @@ export const avgs = {
   oslo: [-2.5, 2, 1.5, 6.5, 12, 16, 18.5, 17, 12.5, 7, 2, -1.5],
   losAngeles: [15, 15.5, 16, 18, 19.5, 21.5, 23.5, 24, 23.5, 21, 17.5, 14.5],
 };
+
+// weather patterns for Weather API Codes
+export const weatherCodes = [
+  "thunderstorm",
+  "rain",
+  "drizzle",
+  "shower",
+  "snow",
+  "clouds",
+  "clear Sky",
+];
+
+// svg icon urls
+export const iconUrl = [
+  "../svg/weather/default.svg",
+  "../svg/weather/clear_sky.svg",
+  "../svg/weather/clouds.svg",
+  "../svg/weather/drizzle.svg",
+  "../svg/weather/night.svg",
+  "../svg/weather/rain.svg",
+  "../svg/weather/showers.svg",
+  "../svg/weather/snow.svg",
+  "../svg/weather/thunderstorm.svg",
+];

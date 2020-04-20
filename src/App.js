@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { avgs } from "./data/data";
 import Info from "./components/info";
 import Temperature from "./components/temperature";
-import DayLightTime from "./components/dayLightTime";
+import DayLightTime from "./components/dayTime";
 import WindInfo from "./components/windInfo";
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
     }, 10000);*/
   }, []);
 
+  //
   const {
     wind_spd,
     city_name,
@@ -35,7 +36,6 @@ function App() {
   } = weatherSelector;
 
   if (!weatherSelector) {
-    console.log("getting ready");
     return <div>Nothing</div>;
   }
 

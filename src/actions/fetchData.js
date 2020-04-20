@@ -38,6 +38,7 @@ export function fetchData(city) {
 
 /**
  * access nested objects with array reduce
+ * source  https://dev.to/flexdinesh/accessing-nested-objects-in-javascript--9m4
  * @param nestedObj
  * @param pathArr
  * @returns {*}
