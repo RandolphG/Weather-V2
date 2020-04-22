@@ -1,0 +1,81 @@
+$font-color:#FFFFFF;
+
+.dashboard{
+  height: 30%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  font-family: "Century Gothic", serif;
+  color: $font-color;
+  .location {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    .date {
+      padding-left: 20px;
+    }
+    .timezone {
+    }
+  }
+  .temperature {
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.65);
+    .actual {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      .desc{
+        padding-left: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .svg {
+          .icon {
+            height: 3rem;
+          }
+        }
+        .text{
+          padding-left: 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          .text-city {
+            font-size: 1rem;
+          }
+          .text-actual-temp {
+            font-size: 1rem;
+          }
+        }
+      }
+      .number {
+        box-sizing: border-box;
+        font-size: 6rem;
+
+      }
+    }
+    .feels {
+      line-height: 20px;
+      .text{
+        font-size: 0.75rem;
+      }
+      .number {
+        font-size: 1.5rem;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}

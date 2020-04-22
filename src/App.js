@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import DialogSelect from "./components/dialogSelect";
 import { fetchData } from "./actions/fetchData";
-import { useSelector, useDispatch } from "react-redux";
-import { avgs } from "./data/data";
-import Info from "./components/info";
-import Temperature from "./components/temperature";
-import DayLightTime from "./components/dayTime";
-import WindInfo from "./components/windInfo";
+import { useDispatch, useSelector } from "react-redux";
+import "antd/dist/antd.css";
+import Dashboard from "./components/dashboard";
+import Carousel from "./components/carousel";
+import Daily from "./components/daily";
+const _ = require("lodash");
 
 function App() {
-  const date = new Date().toDateString().toUpperCase();
-  const month = new Date().getMonth();
   const [city, setCity] = useState("zagreb");
+  const [weather, setWeather] = useState([]);
+  const date = new Date().toDateString().toUpperCase();
   const weatherSelector = useSelector((state) => state.weatherInfo.weatherinfo);
+  const dailySelector = useSelector((state) => state.hourly);
   const dispatch = useDispatch();
   const getWeatherInfoAction = (city) => dispatch(fetchData(city));
 
@@ -24,38 +24,80 @@ function App() {
     }, 10000);*/
   }, []);
 
-  //
-  const {
-    wind_spd,
-    city_name,
-    wind_cdir,
-    sunset,
-    sunrise,
-    temp,
-    weather,
-  } = weatherSelector;
-
-  if (!weatherSelector) {
-    return <div>Nothing</div>;
+  /**
+   * remove element from object
+   * source  https://stackoverflow.com/questions/18599242/remove-certain-elements-from-map-in-javascript
+   * @returns {*}
+   * @param obj
+   * @param check
+   */
+  function removeKeyStartsWith(obj, check) {
+    Object.keys(obj).forEach(function (key) {
+      //if(key[0]==letter) delete obj[key];////without regex
+      if (key.match("^" + check)) delete obj[key]; //with regex
+    });
+    return obj;
   }
 
+  /**
+   *
+   * @param obj
+   * @param check
+   * @returns {*}
+   */
+  async function setKeyStartsWith(obj, check) {
+    Object.keys(obj).forEach(function (key) {
+      //if(key[0]==letter) delete obj[key];////without regex
+      return new Promise((resolve, reject) => {
+        if (key.match("^" + check)) setWeather(obj[key]); //with regex
+        console.log(obj[key], "set");
+        return obj[key];
+      });
+    });
+  }
+
+  /**
+   *
+   * @param time
+   * @returns {string}
+   */
+  const convertTime = (time) => {
+    const now = new Date(time * 1000);
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+  const { lat, lon, timezone, current, daily } = weatherSelector;
+
+  if (!weatherSelector || dailySelector) {
+    return <div>loading</div>;
+  }
+
+  console.log(daily);
   return (
     <div className="App">
       <div className="background">
-        <div
-          className={`container${
-            temp > avgs[city][month] ? " container-hot" : ""
-          }`}
-        >
-          <Info weather={weather} date={date} cityName={city_name} />
-          <Temperature temp={temp} avgs={avgs} city={city} month={month} />
-          <DayLightTime sunrise={sunrise} sunset={sunset} />
-          <WindInfo windDir={wind_cdir} windSpeed={wind_spd} />
-          <DialogSelect
-            city={city}
-            setCity={setCity}
-            getWeatherInfoAction={getWeatherInfoAction}
-          />
+        <div className="container">
+          <div className="main">
+            <div className="header">WEATHER</div>
+            <Dashboard
+              latitude={lat}
+              longitude={lon}
+              date={date}
+              timezone={timezone}
+              city={city}
+              current={current}
+              setKeyStartsWith={setKeyStartsWith}
+            />
+            <Carousel
+              current={current}
+              removeKeyStartsWith={removeKeyStartsWith}
+              convertTime={convertTime}
+            />
+            <Daily daily={daily} />
+          </div>
         </div>
       </div>
     </div>

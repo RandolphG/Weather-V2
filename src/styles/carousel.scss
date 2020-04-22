@@ -1,0 +1,49 @@
+
+.slick-slide {
+    height: 320px;
+    box-sizing: border-box;
+}
+
+.slick-slide img {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel {
+    margin-top: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20%;
+    overflow: hidden;
+    font-family: "Century Gothic", serif;
+    .row {
+        padding:4px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        .name {
+            box-sizing: border-box;
+            height: 30%;
+            color: coral;
+            font-size: .75rem;
+            text-shadow: 1px 0px 3px rgba(0,0,0,0.55);
+        }
+        .decorated {
+            margin-left: 16px;
+            padding-left:16px;
+            width: 15px;
+            height: 5px;
+        }
+        .value {
+            height: 100%;
+            font-size: 1.3rem;
+            color: cornflowerblue;
+            text-shadow: 1px 0px 3px rgba(0,0,0,0.55);
+
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+  text-align: center;
+  height: 100vh;
+  .colavo-carousel-dots {
+    background: lemonchiffon;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    & li {
+      list-style: none;
+      display: inline-block;
+      margin: 3px 5px;
+      & button {
+        background: lawngreen;
+        border: none;
+        color: transparent;
+        cursor: pointer;
+        display: block;
+        height: 10px;
+        width: 10px;
+        border-radius: 5px;
+        transition: all 0.5s;
+      }
+    }
+    .slick-active button {
+      width: 30px;
+      transition: all 0.5s;
+    }
+  }
+  .slick-center {
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    transition: ease-in-out 0.5s;
+    /* item */
+  }
+  .slick-slide {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+}
+
+
+.thumbnail{
+  border-radius: 5px;
+  background: white;
+  text-align: left;
+  max-width: 150px;
+  h1 {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .info {
+    padding: 20px;
+  }
+  .text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  img {
+    width: 30%;
+    height: 100px;
+    object-fit: cover;
+    object-position: top;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}

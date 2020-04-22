@@ -1,70 +1,81 @@
-@import "styles/dayTime";
-@import "styles/info";
-@import "styles/temperature";
-@import "styles/windInfo";
 @import "styles/dailogSelect";
+@import "styles/carousel";
+@import "styles/dashboard";
+@import 'styles/click';
 
-$normal-gradient: linear-gradient(rgb(245, 245, 245), rgb(203, 201, 201), rgb(153, 153, 153)) !important;
-$warm-gradient: linear-gradient(rgb(237, 168,111), rgb(239, 134, 101), rgb(218, 99, 101), rgb(208, 69,110)) !important;
+$purple-theme: linear-gradient(45deg,#7F5C6C, #513E56,#473B56,#403455,#3B3551) !important;
+$dark-theme: linear-gradient(45deg,#242223, #5f5e5e,#242223) !important;
+$dark-blue-theme :linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+$default-theme: linear-gradient(rgb(245, 245, 245), rgb(203, 201, 201), rgb(153, 153, 153)) !important;
+$warm-gradient: linear-gradient(rgb(237, 168,111), rgb(239, 134, 101), rgb(218, 99, 101), rgb(208, 69,110),rgb(218, 99, 101),rgb(239, 134, 101),rgb(237, 168,111) ) !important;
 $cool-gradient: linear-gradient(rgb(92, 149, 204), rgb(81, 121, 190), rgb(66, 95, 161), rgb(56, 73, 142));
+$animated-gradient: linear-gradient(to right, rgb(237, 168,111) 20%, rgb(239, 134, 101) 40%, rgb(218, 99, 101) 60%,  rgb(239, 134, 101) 80%,rgb(237, 168,111) 90%);
 
 body {
   margin: 0;
   overflow: hidden;
 }
-.App-warm{
-  background: $warm-gradient;
-}
-.App-cool{
-  background: $cool-gradient;
-}
+
 
 //noinspection CssNoGenericFontName
 .App {
   text-align: center;
   .background {
-    background: $normal-gradient;
+    background: $purple-theme;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
     padding: 16px;
     height: 100vh;
-    .container-hot {
-      padding: 8px;
-      height: 100%;
-      border-radius: 3px;
-      background: $warm-gradient;
-      font-family: "Fira Code Medium";
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: calc(10px + 2vmin);
-      color: white;
-      box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.35);
-    }
     .container {
+      box-sizing: border-box;
+      border-radius: 3px;
       height: 100%;
       padding: 8px;
-      border-radius: 3px;
-      background: $cool-gradient;
-      font-family: "Fira Code Medium";
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       font-size: calc(10px + 2vmin);
-      color: white;
-      @media screen and (min-width: 500px) {
-        text-align: center;
-        width: 59%;
-        padding: 50px;
-        align-items: center;
-        justify-content: space-around;
+      //box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.25);
+      .main{
+        // background image
+        background-image: url("./img/_blue_gradient.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:0 8px;
+        border:1px purple solid;
+        border-radius: 3px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.25);
+        .header{
+          width: 100%;
+          color: black;
+          background: $animated-gradient;
+          background-size: 200% auto;
+          background-clip: border-box ;
+          text-fill-color: transparent;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shine 4s linear infinite;
+          @keyframes shine {
+            to {
+              background-position: 200% center;
+            }
+          }
+        }
+      }
+    }
+    .dark-theme {
+      & .container {
+        background: $dark-theme;
       }
     }
   }
 }
+
+
 
 

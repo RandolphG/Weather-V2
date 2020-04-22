@@ -1,43 +1,93 @@
-# README
+![Weather App](https://media.giphy.com/media/QvjlUCkdbXJHVQk0IG/giphy.gif)
 
 
-## What is this repository for?
-
-This repo is solely for the interview purpose to give candidates a well established task for their expertise and ability evaluation. 
-
-It is a fork of a original repository which contains a coding exercise explained later. You have writing permissions to it, so you can push to it whatever you like regarding this task, and we would be happy if you did.
-
-## The task
-
-We want you to create a simple, but functional interface in React that displays the weather. It should be created from “scratch”, potentially using some bootstrap functionality you are comfortable with. In this interface it should be possible to select between three different cities (`Oslo`, `Zagreb`, `Los Angeles`) and you should be able to see the weather in real time, updating every 10 seconds, implement this in a way you see fit.
+## Install
 
 
+And then install dependencies with npm.
+
+```bash
+$ cd project
+$ npm i
+$ npm run electron 
+```
+**Note**: I opted to choose the RapidApi over the suggested example as it was responding with incorrect data. Unfortunately I ran out of time to write the test code.
 
 
-If the temperature is significantly cooler or warmer than normal for the selected city, there should be an indication somewhere on the page. The historical weather data doesn’t need to be acquired in real-time or from an external API.
+## Features
+- users can choose a city (managed with redux)
+- displays the time, temperature, and wind info of the selected city 
+- refreshes data every 10 seconds
+- blue background if it's colder than usual than average this month
+- orange background if it's warmer than usual
+- custom CSS
+- electron 
 
-Feel free to improvise wherever you feel like the task is unclear, we’re primarily interested in the way you approach a problem. Keep it simple when possible.
+**Resources**: 
 
-## Technology
+**Open Weather Map API**: [Link](https://openweathermap.org/api/one-call-api#data)
 
-Feel free to use auto-generated boilerplate code. It needs to be written in React and make use of Redux. If you copy code (for example from stackoverflow) this needs to be clearly marked. It needs to run on a Windows 10 desktop computer or on a webpage.
+**Ultimate Css Gradient Generator**: [Link](https://www.colorzilla.com/gradient-editor/)
 
-## Requirements
+**CSS Gradients Guide**: [Link](https://css-tricks.com/css3-gradients/)
 
-- JavaScript
-- React
-- Redux
-- Electron (optional)
+**GIFS GIFS resize gifs**: [Link](http://gifgifs.com/resizer/)
 
-*An example weather API you can use: https://api.met.no/*
+**Resize A GIF Animation w/Photoshop**: [The Simplest Way](http://www.thesimplest.net/pc/simplest-way-resize-gif-animation-using-photoshop-cs4)
 
-// API appeared to be recently depreciated so instead I opted to use another Rapid Api repo.
+**Convert a Unix timestamp to time in JavaScript**: [StackOverflow](https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript)
 
-## Nice to have
+<!-- language: lang-js -->
 
-- Usage of a distributed system for version control (preferably this one).
-- Unit and/or UI tests covering at least some part of the logic or interface created during the assignment.
+    let unix_timestamp = 1549312452
+    // Create a new JavaScript Date object based on the timestamp
+    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    var date = new Date(unix_timestamp * 1000);
+    // Hours part from the timestamp
+    var hours = date.getHours();
+    // Minutes part from the timestamp
+    var minutes = "0" + date.getMinutes();
+    // Seconds part from the timestamp
+    var seconds = "0" + date.getSeconds();
 
-## Who do I talk to?
+    // Will display time in 10:30:23 format
+    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    
+<!-- end snippet -->
 
-Please, do not hessitate to reach out to your point of contact if in a need of assistastance or would like a clarification on anything related to what is written here.
+**Text-shadow Generator**: [HTML CSS JS](https://html-css-js.com/css/generator/text-shadow/)
+
+**Mapping object keys return properties**: [StackOverflow](https://stackoverflow.com/questions/51841507/mapping-object-keys-in-react-and-returning-child-properties)
+
+**Lodash uppercase first letter of every word**: [StackOverflow](https://stackoverflow.com/questions/38084396/lodash-title-case-uppercase-first-letter-of-every-word)
+
+**Theming with React and Sass**: [Medium](https://medium.com/@jasonlmcaffee/theming-with-react-and-sass-c7a6882fd26b)
+
+**Adding Dynamic Themes Using CSS Variables**: [Medium](https://medium.com/@krandles/adding-dynamic-themes-to-a-react-app-using-css-variables-57957e39f0bf)
+
+**Remove certain elements from map in javascript**: [StackOverflow](https://stackoverflow.com/questions/18599242/remove-certain-elements-from-map-in-javascript)
+
+**How to loop an object in React?**: [StackOverflow](https://stackoverflow.com/questions/39965579/how-to-loop-an-object-in-react/39965962)
+
+**Ultimate Flexbox Cheat Sheet**: [SketchingWithCss](https://www.sketchingwithcss.com/samplechapter/cheatsheet.html)
+
+**Slick Carousel Examples**: [Code Sandbox](https://codesandbox.io/examples/package/slick-carousel)
+
+**React Slick**: [reactslick-neostack](https://react-slick.neostack.com/)
+
+**Animated Gradient Text**: [codepen.io](https://codepen.io/shshaw/pen/YpERQQ)
+
+**CSS Background Image**: [StackOverflow](https://stackoverflow.com/questions/11757537/css-image-size-how-to-fill-not-stretch
+
+**Card CodeSandbox**: [Code Sandbox](https://codesandbox.io/s/j0y0vpz59?from-embed=&file=/src/index.js
+
+**Movie Vertical Carousel CodeSandbox**: [Code SandBox](https://codesandbox.io/s/movie-show-6yn2x?file=/src/App.js)
+
+**Random Giveaway CodeSandbox**: [Code SandBox](https://codesandbox.io/s/j3v352rxjw)
+
+**Why this problem happend in my react function?**: [StackOverflow](https://stackoverflow.com/questions/58680442/why-this-problem-happend-in-my-react-function)
+
+**Colavo Carousel**: [Code Sandbox](https://codesandbox.io/s/colavo-carousel-wkkvc?file=/src/index.tsx:1444-2134)
+
+**FlockBayv2 Carousel**: [Code Sandbox](https://codesandbox.io/s/flockbayv2-klsst?file=/src/styles.scss)
+

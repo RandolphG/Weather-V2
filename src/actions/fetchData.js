@@ -13,27 +13,78 @@ export function fetchData(city) {
   const { latitude, longitude } = selection || {};
   const lon = longitude;
   const lat = latitude;
+  let hourly = null;
+
+  const openWeatherApi = {
+    app_id: "68f7849261554f85749a74265bdc800c",
+    lat: lat,
+    long: lon,
+    units: "metric",
+  };
+
+  const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${openWeatherApi.lat}&lon=${openWeatherApi.long}&units=${openWeatherApi.units}&appid=${openWeatherApi.app_id}`;
+  console.log(url);
 
   return async function (dispatch) {
-    const url = `https://weatherbit-v1-mashape.p.rapidapi.com/current?lang=en&lon=${lon}&lat=${lat}`;
-    await fetch(url, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
-        "x-rapidapi-key": "3433df2959msh22e9e7607844fa5p12cb6ejsne7179ae91a96",
-      },
-    })
-      .then((response) => {
-        if (response.error) {
-          throw response.error;
-        }
-        return response.json();
-      })
-      .then((data) => {
-        dispatch({ type: "FETCH_DATA", payload: data.data[0] });
-      })
-      .catch((err) => {});
+    console.log("fetch");
+
+    const requests = [
+      await fetch(url)
+        //current.
+        .then((response) => {
+          if (response.error) {
+            throw response.error;
+          }
+          return response.json();
+        })
+        .then((data) => {
+          dispatch({ type: "FETCH_DATA", payload: data });
+        })
+        .catch((err) => {}),
+      // hourly
+      await fetch(url)
+        .then((response) => {
+          if (response.error) {
+            throw response.error;
+          }
+          return response.json();
+        })
+        .then((data) => {
+          dispatch({ type: "FETCH_HOURLY", payload: data.hourly });
+        })
+        .catch((err) => {}),
+      // daily
+      await fetch(url)
+        .then((response) => {
+          if (response.error) {
+            throw response.error;
+          }
+          return response.json();
+        })
+        .then((data) => {
+          dispatch({ type: "FETCH_DAILY", payload: data.daily });
+        })
+        .catch((err) => {}),
+    ];
   };
+}
+
+/**
+ *
+ * @param obj
+ * @param check
+ * @returns {*}
+ */
+async function setKeyStartsWith(obj, check) {
+  Object.keys(obj).forEach(function (key) {
+    //if(key[0]==letter) delete obj[key];////without regex
+    return new Promise((resolve, reject) => {
+      if (key.match("^" + check))
+        //with regex
+        console.log(obj[key], "set");
+      return obj[key];
+    });
+  });
 }
 
 /**
