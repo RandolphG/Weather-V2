@@ -1,3 +1,4 @@
+$animated-gradient: linear-gradient(to left, rgb(237, 168,111) 20%, rgb(239, 134, 101) 40%, rgb(218, 99, 101) 60%,  rgb(239, 134, 101) 80%,rgb(237, 168,111) 90%);
 
 .slick-slide {
     height: 320px;
@@ -28,19 +29,31 @@
         .name {
             box-sizing: border-box;
             height: 30%;
-            color: coral;
             font-size: .75rem;
-            text-shadow: 1px 0px 3px rgba(0,0,0,0.55);
+            font-weight: bold;
+            text-shadow: 1px 0 3px rgba(0,0,0,0.55);
+            background: $animated-gradient;
+            background-size: 200% auto;
+            background-clip: border-box ;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            @keyframes shine {
+                to {
+                    background-position: 200% center;
+                }
+            }
+
         }
         .decorated {
             margin-left: 16px;
-            padding-left:16px;
-            width: 15px;
+            width: 5px;
             height: 5px;
         }
         .value {
             height: 100%;
-            font-size: 1.3rem;
+            font-size: 1rem;
             color: cornflowerblue;
             text-shadow: 1px 0px 3px rgba(0,0,0,0.55);
 

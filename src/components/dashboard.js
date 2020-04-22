@@ -1,21 +1,11 @@
 import { motion } from "framer-motion";
 import defaultImg from "../svg/weather/clear_sky.svg";
-import React, { useEffect } from "react";
+import Icon from "./icon";
+import React from "react";
 
-function Dashboard({
-  weather,
-  date,
-  timezone,
-  city,
-  current,
-  setKeyStartsWith,
-}) {
+function Dashboard({ date, city, current }) {
   return (
     <div className="dashboard">
-      <div className="location">
-        <div className="date">{date}</div>
-        <div className="timezone">{timezone}</div>
-      </div>
       <div className="temperature">
         <div className="actual">
           <div className="desc">
@@ -34,8 +24,11 @@ function Dashboard({
               />
             </div>
             <div className="text">
-              <div className="text-city">{city.toUpperCase()}</div>
-              <div className="text-actual-temp">ACTUAL TEMP</div>
+              <div className="location">
+                <Icon name={"location-icon"} type={"location"} />
+                <div className="text-city">{city.toUpperCase()}</div>
+              </div>
+              <div className="date">{date}</div>
             </div>
           </div>
           <div className="number">{current && current.temp.toFixed()}&deg;</div>

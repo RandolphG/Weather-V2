@@ -20,7 +20,7 @@ function Click({ foo, click }) {
   });
   return (
     // <div onClick={() => toggle(!state)}>
-    <div onClick={() => foo()}>
+    <div className="click-btn" onClick={() => foo()}>
       <animated.div
         style={{
           color: "coral",

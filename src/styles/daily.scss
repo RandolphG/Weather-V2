@@ -1,11 +1,12 @@
+$daily-default-font-color: #81a8ef;
+
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 30px 0;
   text-align: center;
-  height: 100vh;
+  height: 40vh;
   .colavo-carousel-dots {
-    background: lemonchiffon;
     display: inline-block;
     vertical-align: middle;
     padding: 0;
@@ -14,45 +15,44 @@
     & li {
       list-style: none;
       display: inline-block;
-      margin: 3px 5px;
+      margin: 20px 5px;
       & button {
-        background: lawngreen;
-        border: none;
+        border: $daily-default-font-color 2px solid;
         color: transparent;
         cursor: pointer;
         display: block;
-        height: 10px;
+        height: 5px;
         width: 10px;
         border-radius: 5px;
-        transition: all 0.5s;
+        transition: all 0.2s;
       }
     }
     .slick-active button {
       width: 30px;
-      transition: all 0.5s;
+      transition: all 0.2s;
     }
   }
   .slick-center {
-    -webkit-transform: scale(1.08);
-    -moz-transform: scale(1.08);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
     transform: scale(1) !important;
     opacity: 1 !important;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.1s;
     /* item */
   }
   .slick-slide {
-    transform: scale(0.95);
-    opacity: 0.7;
+    transform: scale(0.9);
+    opacity: 0.4;
   }
-
 }
 
 
-.thumbnail{
-  border-radius: 5px;
-  background: white;
+.thumbnail{/* outline: none; */
+  border: rgb(81, 121, 190) 2px solid;
+  border-radius: 3px;
   text-align: left;
-  max-width: 150px;
+  max-width: 100%;
+  color: $daily-default-font-color;
   h1 {
     display: -webkit-box;
     overflow: hidden;
@@ -61,7 +61,20 @@
     -webkit-box-orient: vertical;
   }
   .info {
+    font-family: "Century Gothic", serif;
     padding: 20px;
+    font-size: 0.7rem;
+    .element {
+      display: flex;
+      flex-direction: row;
+      .svg {
+        .icon {
+          margin-right: 4px;
+          height: 1rem;
+          width: 1rem;
+        }
+      }
+    }
   }
   .text {
     display: -webkit-box;
@@ -70,15 +83,6 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
-  img {
-    width: 30%;
-    height: 100px;
-    object-fit: cover;
-    object-position: top;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
+
 }
+

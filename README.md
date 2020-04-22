@@ -91,3 +91,7 @@ $ npm run electron
 
 **FlockBayv2 Carousel**: [Code Sandbox](https://codesandbox.io/s/flockbayv2-klsst?file=/src/styles.scss)
 
+**JEST**: [Jest](https://create-react-app.dev/docs/running-tests/#docsNav)
+
+**SWITCH BITBUCKET TO GITHUB**: Medium](https://medium.com/collaborne-engineering/how-to-migrate-a-private-repository-from-bitbucket-to-github-6cddedd5d73)
+

@@ -1,101 +1,18 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styled from "styled-components";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
-import Click from "./click";
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 40vh;
-  .colavo-carousel-dots {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0;
-    margin: auto;
-    text-align: center;
-    & li {
-      list-style: none;
-      display: inline-block;
-      margin: 20px 5px;
-      & button {
-        border: none;
-        color: transparent;
-        cursor: pointer;
-        display: block;
-        height: 10px;
-        width: 10px;
-        border-radius: 5px;
-        transition: all 0.2s;
-      }
-    }
-    .slick-active button {
-      width: 30px;
-      transition: all 0.2s;
-    }
-  }
-  .slick-center {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    transform: scale(1) !important;
-    opacity: 1 !important;
-    transition: ease-in-out 0.1s;
-    /* item */
-  }
-  .slick-slide {
-    transform: scale(0.9);
-    opacity: 0.4;
-  }
-`;
-
-const Thumbnail = styled.div`
-  /* outline: none; */
-  border-radius: 3px;
-  text-align: left;
-  max-width: 100%;
-  color: white;
-  h1 {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-  }
-  .info {
-    font-family: "Century Gothic", serif;
-    padding: 20px;
-    font-size: 0.7rem;
-  }
-  .text {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
-  img {
-    width: 97%;
-    height: 40px;
-    object-fit: cover;
-    object-position: top;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  @media (max-width: 768px) {
-    max-width: 100%;
-  }
-`;
+import Icon from "./icon";
 
 const settings = {
-  dots: true,
+  dots: false,
   centerMode: true,
   centerPadding: "90px",
   slidesToShow: 3,
   // autoplay: true,
-  // autoplaySpeed: 1000,
+  // autoplaySpeed: 3000,
   speed: 500,
   dotsClass: "colavo-carousel-dots",
   responsive: [
@@ -111,24 +28,20 @@ const settings = {
 
 /**
  *
+ * @param convertTime
  * @param daily
+ * @param woo
+ * @param visible
+ * @param woo
+ * @param visible
  * @returns {*}
  * @constructor
  */
-function Daily({ daily }) {
-  const [visible, setVisible] = useState(false);
+function Daily({ convertTime, daily, woo, visible }) {
   const [index, setIndex] = useState(0);
-  const [click, toggle] = useState(true);
   const Slider1 = useRef();
   const Slider2 = useRef();
 
-  const foo = useCallback(() => {
-    setVisible(true);
-  }, []);
-  const woo = () => {
-    toggle(!click);
-    setVisible(false);
-  };
   const goo = (prev, next) => {
     console.log(next);
     setIndex(next);
@@ -146,19 +59,17 @@ function Daily({ daily }) {
         <Slider ref={Slider2} initialSlide={index}>
           {daily &&
             daily.map((d, idx) => (
-              <Thumbnail key={idx} className="item">
+              <div key={idx} className="thumbnail">
                 {/*<img src={d.imgUrl} alt={d.name} />*/}
                 <div className="info">
-                  <div>Service</div>
-                  <b>name</b>
-                  <h1>title</h1>
+                  <div>test</div>
                   <div className="text">text</div>
                 </div>
-              </Thumbnail>
+              </div>
             ))}
         </Slider>
       </Modal>
-      <Wrapper className={"item"}>
+      <div className={"wrapper"}>
         <Slider {...settings} arrows={false} ref={Slider1} beforeChange={goo}>
           {daily &&
             daily.map(
@@ -177,28 +88,54 @@ function Daily({ daily }) {
                 },
                 idx
               ) => (
-                <Thumbnail key={idx} className="item">
-                  {/*<img src={imgUrl} alt={d.name} />*/}
+                <div key={idx} className="thumbnail">
                   <div className="info">
-                    <div>DAY TIME{dt}</div>
-                    <div>SUNRISE{sunrise}</div>
-                    <div>SUNSET{sunset}</div>
-                    <div>PRESSURE{pressure}</div>
-                    <div>HUMIDITY{humidity}</div>
-                    <div>DEW POINT{dew_point}</div>
-                    <div>WIND SPEED{wind_speed}</div>
-                    <div>DEGREES{wind_deg}</div>
-                    <div>CLOUDS{clouds}</div>
-                    <div>UVI{uvi}</div>
+                    <div className="element">
+                      <Icon />
+                      DAY TIME {convertTime(dt)}
+                    </div>
+                    <div className="element">
+                      <Icon type={"sunrise"} />
+                      SUNRISE {convertTime(sunrise)}
+                    </div>
+                    <div className="element">
+                      <Icon type={"sunsets"} />
+                      SUNSET {convertTime(sunset)}
+                    </div>
+                    <div className="element">
+                      <Icon type={"pressure"} />
+                      PRESSURE {pressure}
+                    </div>
+                    <div className="element">
+                      <Icon type={"humidity"} />
+                      HUMIDITY {humidity}
+                    </div>
+                    <div className="element">
+                      <Icon type={"dew"} />
+                      DEW POINT {dew_point}
+                    </div>
+                    <div className="element">
+                      <Icon type="wind-speed" />
+                      WIND SPEED {wind_speed}
+                    </div>
+                    <div className="element">
+                      <Icon type={"degree"} />
+                      DEGREES {wind_deg}
+                    </div>
+                    <div className="element">
+                      <Icon type={"clouds"} />
+                      CLOUDS {clouds}
+                    </div>
+                    <div className="element">
+                      <Icon type={"uv"} />
+                      UVI {uvi}
+                    </div>
                   </div>
-                  <div style={{ textAlign: "center" }}>
-                    <Click click={click} foo={foo} />
-                  </div>
-                </Thumbnail>
+                </div>
               )
             )}
         </Slider>
-      </Wrapper>
+      </div>
     </>
   );
 }

@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { fetchData } from "./actions/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import "antd/dist/antd.css";
 import Dashboard from "./components/dashboard";
 import Carousel from "./components/carousel";
 import Daily from "./components/daily";
+import Click from "./components/click";
+import SideBar from "./components/drawer";
 const _ = require("lodash");
 
 function App() {
   const [city, setCity] = useState("zagreb");
   const [weather, setWeather] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const [click, toggle] = useState(true);
   const date = new Date().toDateString().toUpperCase();
   const weatherSelector = useSelector((state) => state.weatherInfo.weatherinfo);
   const dailySelector = useSelector((state) => state.hourly);
@@ -23,6 +27,14 @@ function App() {
       getWeatherInfoAction(city);
     }, 10000);*/
   }, []);
+
+  const foo = useCallback(() => {
+    setVisible(true);
+  }, []);
+
+  const woo = () => {
+    setVisible(false);
+  };
 
   /**
    * remove element from object
@@ -81,7 +93,6 @@ function App() {
       <div className="background">
         <div className="container">
           <div className="main">
-            <div className="header">WEATHER</div>
             <Dashboard
               latitude={lat}
               longitude={lon}
@@ -96,7 +107,13 @@ function App() {
               removeKeyStartsWith={removeKeyStartsWith}
               convertTime={convertTime}
             />
-            <Daily daily={daily} />
+            <Daily
+              convertTime={convertTime}
+              daily={daily}
+              woo={woo}
+              visible={visible}
+            />
+            <SideBar />
           </div>
         </div>
       </div>
