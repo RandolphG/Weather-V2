@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { Drawer, Button } from "antd";
 import DarkSwitch from "./switch";
-
+import Hours from "./hours";
 function SideBar() {
   const [visible, setVisible] = useState(false);
 
@@ -34,6 +34,7 @@ function SideBar() {
         style={{ position: "absolute" }}
       >
         <DarkSwitch />
+        <Hours />
       </Drawer>
     </div>
   );
