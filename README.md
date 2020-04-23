@@ -93,5 +93,33 @@ $ npm run electron
 
 **JEST**: [Jest](https://create-react-app.dev/docs/running-tests/#docsNav)
 
-**SWITCH BITBUCKET TO GITHUB**: Medium](https://medium.com/collaborne-engineering/how-to-migrate-a-private-repository-from-bitbucket-to-github-6cddedd5d73)
+**SWITCH BITBUCKET TO GITHUB**: [Medium](https://medium.com/collaborne-engineering/how-to-migrate-a-private-repository-from-bitbucket-to-github-6cddedd5d73)
+
+**Dark Mode Switch**: [CSS-Tricks](https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/)
+
+-- CODE PEN --
+
+**Animated Weather Icons**: [codepen.io](https://codepen.io/joshbader/pen/EjXgqr)
+
+**Weather Dashboard by STUDIOJQ**: [codepen.io](https://codepen.io/creme/pen/eFkzo)
+
+**Animated Weather Cards**: [codepen.io](https://codepen.io/ste-vg/pen/Gqakbo)
+
+**Calendar Widget II**: [codepen.io](https://codepen.io/internette/details/YqJEjY)
+
+**Animated CSS Weather Icons - A Remix**: [codepen.io](https://codepen.io/jasesmith/pen/LbJrXx)
+
+**Weather Forecast**: [codepen.io](https://codepen.io/khadkamhn/pen/gryLoa)
+
+**Canvas Image Carousel**: [codepen.io](https://codepen.io/fuzinato/pen/PwLLjB)
+
+**Weather App, built with jQuery**: [codepen.io](https://codepen.io/tns301/pen/yXLWjQ)
+
+**Google Now Widget**: [codepen.io](https://codepen.io/bronsrobin/pen/yqzfB)
+
+**Simple Weather App Design**: [codepen.io](https://codepen.io/Call_in/pen/pMYGbZ)
+
+**Flat Ui Forecast Widget**: [codepen.io](https://codepen.io/soulrider911/pen/lbuBA)
+
+**Weather Card**: [codepen.io](https://codepen.io/thecodingaviator/pen/BqBMYP)
 

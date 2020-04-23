@@ -5,25 +5,21 @@ import "antd/dist/antd.css";
 import Dashboard from "./components/dashboard";
 import Carousel from "./components/carousel";
 import Daily from "./components/daily";
-import Click from "./components/click";
-import SideBar from "./components/drawer";
-const _ = require("lodash");
+import SideBar from "./components/sideBar";
 
 function App() {
   const [city, setCity] = useState("zagreb");
-  const [weather, setWeather] = useState([]);
   const [visible, setVisible] = useState(false);
-  const [click, toggle] = useState(true);
   const date = new Date().toDateString().toUpperCase();
   const weatherSelector = useSelector((state) => state.weatherInfo.weatherinfo);
-  const dailySelector = useSelector((state) => state.hourly);
+
   const dispatch = useDispatch();
   const getWeatherInfoAction = (city) => dispatch(fetchData(city));
 
   useEffect(() => {
-    let interval = null;
     getWeatherInfoAction(city);
-    /*interval = setInterval(() => {
+    /*let interval = null;
+    interval = setInterval(() => {
       getWeatherInfoAction(city);
     }, 10000);*/
   }, []);
@@ -52,56 +48,27 @@ function App() {
   }
 
   /**
-   *
-   * @param obj
-   * @param check
-   * @returns {*}
-   */
-  async function setKeyStartsWith(obj, check) {
-    Object.keys(obj).forEach(function (key) {
-      //if(key[0]==letter) delete obj[key];////without regex
-      return new Promise((resolve, reject) => {
-        if (key.match("^" + check)) setWeather(obj[key]); //with regex
-        console.log(obj[key], "set");
-        return obj[key];
-      });
-    });
-  }
-
-  /**
-   *
+   * convert time to string
    * @param time
    * @returns {string}
    */
-  const convertTime = (time) => {
+  function convertTime(time) {
     const now = new Date(time * 1000);
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
     return `${hours}:${minutes}:${seconds}`;
-  };
-
-  const { lat, lon, timezone, current, daily } = weatherSelector;
-
-  if (!weatherSelector || dailySelector) {
-    return <div>loading</div>;
   }
 
-  console.log(daily);
+  /* data to propagate */
+  const { current, daily, hourly } = weatherSelector;
+
   return (
     <div className="App">
       <div className="background">
         <div className="container">
           <div className="main">
-            <Dashboard
-              latitude={lat}
-              longitude={lon}
-              date={date}
-              timezone={timezone}
-              city={city}
-              current={current}
-              setKeyStartsWith={setKeyStartsWith}
-            />
+            <Dashboard date={date} city={city} current={current} />
             <Carousel
               current={current}
               removeKeyStartsWith={removeKeyStartsWith}
@@ -113,7 +80,7 @@ function App() {
               woo={woo}
               visible={visible}
             />
-            <SideBar />
+            <SideBar convertTime={convertTime} hours={hourly} />
           </div>
         </div>
       </div>

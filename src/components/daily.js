@@ -47,7 +47,7 @@ function Daily({ convertTime, daily, woo, visible }) {
     setIndex(next);
   };
 
-  daily && console.log(daily.length);
+  // daily && console.log(daily.length);
   return (
     <>
       <Modal

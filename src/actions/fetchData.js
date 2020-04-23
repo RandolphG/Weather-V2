@@ -6,14 +6,17 @@ import { location } from "../data/data";
  * @param city
  */
 export function fetchData(city) {
+  let selection = "undefined";
+
   if (!city || "") {
-    const selection = getNestedObject(location, ["default"]);
+    selection = getNestedObject(location, ["default"]);
+  } else {
+    selection = getNestedObject(location, [city]);
   }
-  const selection = getNestedObject(location, [city]);
+
   const { latitude, longitude } = selection || {};
   const lon = longitude;
   const lat = latitude;
-  let hourly = null;
 
   const openWeatherApi = {
     app_id: "68f7849261554f85749a74265bdc800c",
@@ -23,13 +26,11 @@ export function fetchData(city) {
   };
 
   const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${openWeatherApi.lat}&lon=${openWeatherApi.long}&units=${openWeatherApi.units}&appid=${openWeatherApi.app_id}`;
-  console.log(url);
+  console.log(`fetched from url : ${url}`);
 
   return async function (dispatch) {
-    console.log("fetch");
-
     const requests = [
-      await fetch(url)
+      fetch(url)
         //current.
         .then((response) => {
           if (response.error) {
@@ -64,27 +65,11 @@ export function fetchData(city) {
         .then((data) => {
           dispatch({ type: "FETCH_DAILY", payload: data.daily });
         })
-        .catch((err) => {}),
+        .catch((err) => {
+          console.log(err);
+        }),
     ];
   };
-}
-
-/**
- *
- * @param obj
- * @param check
- * @returns {*}
- */
-async function setKeyStartsWith(obj, check) {
-  Object.keys(obj).forEach(function (key) {
-    //if(key[0]==letter) delete obj[key];////without regex
-    return new Promise((resolve, reject) => {
-      if (key.match("^" + check))
-        //with regex
-        console.log(obj[key], "set");
-      return obj[key];
-    });
-  });
 }
 
 /**

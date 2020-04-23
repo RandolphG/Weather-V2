@@ -44,7 +44,11 @@ const icon = ({ name, type }) => {
 
   return (
     <div className="svg">
-      <img className={name ? name : "icon"} src={checkType(type)} />
+      <img
+        alt="icon-svg"
+        className={name ? name : "icon"}
+        src={checkType(type)}
+      />
     </div>
   );
 };

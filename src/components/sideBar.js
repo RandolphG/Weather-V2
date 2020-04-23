@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { Drawer, Button } from "antd";
-import DarkSwitch from "./switch";
 import Hours from "./hours";
-function SideBar() {
+
+function SideBar(hourly) {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -14,7 +14,7 @@ function SideBar() {
     setVisible(false);
   };
   return (
-    <div className="site-drawer-render-in-current-wrapper">
+    <div style={{ overflow: "hidden" }}>
       <div style={{ marginTop: 8, marginBottom: 8 }}>
         <Button
           type="primary"
@@ -25,16 +25,17 @@ function SideBar() {
         </Button>
       </div>
       <Drawer
-        title="HOURS"
+        // className="ant-drawer-wrapper-body"
+        // title="HOURS"
         placement="right"
-        closable={false}
+        closable={true}
         onClose={onClose}
-        visible={visible}
+        // visible={visible}
+        visible={false}
         getContainer={false}
-        style={{ position: "absolute" }}
+        style={{ position: "absolute", overflow: "hidden" }}
       >
-        <DarkSwitch />
-        <Hours />
+        <Hours hours={hourly} />
       </Drawer>
     </div>
   );

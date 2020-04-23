@@ -3,6 +3,8 @@
 @import "styles/dashboard";
 @import 'styles/click';
 @import "styles/daily";
+@import "styles/weatherIcons";
+@import "styles/hours";
 
 $purple-theme: linear-gradient(45deg,#7F5C6C, #513E56,#473B56,#403455,#3B3551) !important;
 $dark-theme: linear-gradient(45deg,#242223, #5f5e5e,#242223) !important;
@@ -52,11 +54,6 @@ body {
         overflow: hidden;
         box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.25);
 
-      }
-    }
-    .dark-theme {
-      & .container {
-        background: $dark-theme;
       }
     }
   }

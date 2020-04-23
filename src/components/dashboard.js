@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
-import defaultImg from "../svg/weather/clear_sky.svg";
 import Icon from "./icon";
 import React from "react";
+import { Rainy } from "./weatherIcons/icons";
 
 function Dashboard({ date, city, current }) {
   return (
@@ -10,18 +9,7 @@ function Dashboard({ date, city, current }) {
         <div className="actual">
           <div className="desc">
             <div className="svg">
-              <motion.img
-                animate={{
-                  rotate: [180, 0, 180],
-                }}
-                transition={{
-                  duration: 10,
-                  ease: "easeInOut",
-                  loop: Infinity,
-                }}
-                className="icon"
-                src={defaultImg}
-              />
+              <Rainy />
             </div>
             <div className="text">
               <div className="location">
