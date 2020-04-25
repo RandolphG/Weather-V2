@@ -103,7 +103,7 @@ $ npm run electron
 
 **Weather Dashboard by STUDIOJQ**: [codepen.io](https://codepen.io/creme/pen/eFkzo)
 
-**Animated Weather Cards**: [codepen.io](https://codepen.io/ste-vg/pen/Gqakbo)
+**★★ Animated Weather Cards**: [codepen.io](https://codepen.io/ste-vg/pen/Gqakbo)
 
 **Calendar Widget II**: [codepen.io](https://codepen.io/internette/details/YqJEjY)
 
@@ -123,3 +123,12 @@ $ npm run electron
 
 **Weather Card**: [codepen.io](https://codepen.io/thecodingaviator/pen/BqBMYP)
 
+**Material UI & Styled Components**: [StackOverflow](https://stackoverflow.com/questions/49656531/styling-material-ui-drawer-component-with-styled-components)
+
+**Weather Card V2**: [codepen.io](https://codepen.io/thecodingaviator/pen/BqBMYP)
+
+**Electron Security Warning**: [codepen.io](https://codepen.io/thecodingaviator/pen/BqBMYP)
+
+**Convert Date to Actual day of week**: [StackOverflow](https://stackoverflow.com/questions/24998624/day-name-from-date-in-js)
+
+**Splash Screen**: [StackOverflow](https://stackoverflow.com/questions/51525931/splash-screen-in-create-react-app)

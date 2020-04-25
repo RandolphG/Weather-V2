@@ -1,19 +1,7 @@
 import React from "react";
 import { convertTime } from "../services/helpers";
-
+import Icon from "./icon";
 function Hours(hourly) {
-  hourly &&
-    console.log(
-      "convertTime: ",
-      typeof convertTime,
-      "hours length",
-      hourly.hours.length,
-      "hours object",
-      hourly.hours,
-      "hours nested",
-      hourly.hours.hours
-    );
-
   return hourly.hours.hours
     ? hourly.hours.hours.map(
         ({
@@ -29,7 +17,10 @@ function Hours(hourly) {
         }) => (
           <div className="hourly-info" key={dayTime}>
             <div>{convertTime(dayTime)}</div>
-            <div>temp{temp}</div>
+            <div>
+              <Icon type={"hours"} name={"sidebar-icon"} />
+              {temp}
+            </div>
             <div>pressure{pressure}</div>
             <div>{feelsLike}</div>
             <div>{humidity}</div>

@@ -1,42 +1,33 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import "antd/dist/antd.css";
 import { Drawer, Button } from "antd";
 import Hours from "./hours";
 
-function SideBar(hourly) {
-  const [visible, setVisible] = useState(false);
+const StyledDrawer = styled(Drawer)`
+  .ant-drawer-body {
+    background-image: url("../img/_blue_gradient.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+`;
 
-  const showDrawer = () => {
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
+function SideBar(hourly, onClose, showDrawer) {
   return (
     <div style={{ overflow: "hidden" }}>
-      <div style={{ marginTop: 8, marginBottom: 8 }}>
-        <Button
-          type="primary"
-          style={{ background: "transparent" }}
-          onClick={showDrawer}
-        >
-          click
-        </Button>
-      </div>
-      <Drawer
+      <StyledDrawer
         // className="ant-drawer-wrapper-body"
         // title="HOURS"
         placement="right"
         closable={true}
         onClose={onClose}
         // visible={visible}
-        visible={false}
+        // visible={visible}
         getContainer={false}
-        style={{ position: "absolute", overflow: "hidden" }}
+        style={{ position: "absolute" }}
       >
         <Hours hours={hourly} />
-      </Drawer>
+      </StyledDrawer>
     </div>
   );
 }

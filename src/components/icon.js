@@ -11,6 +11,7 @@ import barometer from "../svg/_barometer.svg";
 import sunset from "../svg/_sunsets.svg";
 import location from "../svg/_location_c.svg";
 import hours from "../svg/_hourly.svg";
+import hours_48 from "../svg/_hourly.svg";
 
 const icon = ({ name, type }) => {
   const checkType = (type) => {
@@ -37,6 +38,8 @@ const icon = ({ name, type }) => {
         return sunset;
       case "hours":
         return hours;
+      case "48hours":
+        return hours_48;
       default:
         return defaultImg;
     }

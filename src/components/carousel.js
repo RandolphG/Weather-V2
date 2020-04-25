@@ -24,7 +24,7 @@ const carousel = ({ current, removeKeyStartsWith, convertTime }) => {
                     <div className="name">{item.toUpperCase()}</div>
                     <div className="decorated" />
                     <div className="value">
-                      {index < 3 ? convertTime(current[item]) : current[item]}
+                      {index < 2 ? convertTime(current[item]) : current[item]}
                     </div>
                   </div>
                 )

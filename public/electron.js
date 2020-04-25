@@ -18,6 +18,7 @@ let mainWindow;
 
 // create app window
 function createWindow() {
+  process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
   mainWindow = new BrowserWindow({
     width: 450,
     height: 680,

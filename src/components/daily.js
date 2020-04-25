@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "antd/dist/antd.css";
-import { Modal } from "antd";
 import Icon from "./icon";
 
 const settings = {
@@ -37,39 +36,28 @@ const settings = {
  * @returns {*}
  * @constructor
  */
-function Daily({ convertTime, daily, woo, visible }) {
+function Daily({ convertTime, daily, woo }) {
   const [index, setIndex] = useState(0);
   const Slider1 = useRef();
-  const Slider2 = useRef();
+
+  const weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
 
   const goo = (prev, next) => {
-    console.log(next);
     setIndex(next);
   };
 
   // daily && console.log(daily.length);
   return (
     <>
-      <Modal
-        visible={visible}
-        footer={false}
-        onCancel={woo}
-        destroyOnClose={true}
-      >
-        <Slider ref={Slider2} initialSlide={index}>
-          {daily &&
-            daily.map((d, idx) => (
-              <div key={idx} className="thumbnail">
-                {/*<img src={d.imgUrl} alt={d.name} />*/}
-                <div className="info">
-                  <div>test</div>
-                  <div className="text">text</div>
-                </div>
-              </div>
-            ))}
-        </Slider>
-      </Modal>
       <div className={"wrapper"}>
+        {/*{console.log("mounted")}*/}
         <Slider {...settings} arrows={false} ref={Slider1} beforeChange={goo}>
           {daily &&
             daily.map(

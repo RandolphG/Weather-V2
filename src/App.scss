@@ -1,10 +1,10 @@
-@import "styles/dailogSelect";
 @import "styles/carousel";
 @import "styles/dashboard";
 @import 'styles/click';
 @import "styles/daily";
 @import "styles/weatherIcons";
 @import "styles/hours";
+@import "styles/load";
 
 $purple-theme: linear-gradient(45deg,#7F5C6C, #513E56,#473B56,#403455,#3B3551) !important;
 $dark-theme: linear-gradient(45deg,#242223, #5f5e5e,#242223) !important;
@@ -58,7 +58,3 @@ body {
     }
   }
 }
-
-
-
-

@@ -1,4 +1,5 @@
 $font-color:#FFFFFF;
+$animated-gradient: linear-gradient(-45deg, rgb(237, 168,111) 20%, rgb(239, 134, 101) 40%, rgb(218, 99, 101) 60%,  rgb(239, 134, 101) 80%,rgb(237, 168,111) 90%);
 
 .dashboard{
   height: 30%;
@@ -12,13 +13,13 @@ $font-color:#FFFFFF;
 
   .temperature {
     box-sizing: border-box;
-    height: 100vh;
+    height: 70vh;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
     font-weight: 500;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.65);
+    //text-shadow: 1px 1px 2px rgba(0,0,0,0.65);
     .actual {
       box-sizing: border-box;
       display: flex;
@@ -31,12 +32,12 @@ $font-color:#FFFFFF;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-around;
-        /*.svg {
+        justify-content: space-between;
+        .svg {
           .icon {
-            height: 2rem;
+            height: 1rem;
           }
-        }*/
+        }
         .text{
           padding-left: 16px;
           display: flex;
@@ -52,6 +53,19 @@ $font-color:#FFFFFF;
             }
             .text-city {
               font-size: 1.2rem;
+              font-weight: 500;
+              background: $animated-gradient;
+              background-size: 200% auto;
+              background-clip: border-box ;
+              text-fill-color: transparent;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              animation: shine 2s linear infinite;
+              @keyframes shine {
+                to {
+                  background-position: 200% center;
+                }
+              }
             }
           }
           .date {
@@ -62,18 +76,47 @@ $font-color:#FFFFFF;
       }
       .number {
         box-sizing: border-box;
-        font-size: 6rem;
+        font-size: 4.5rem;
       }
     }
     .feels {
       line-height: 20px;
       .text{
         font-size: 0.75rem;
+        font-weight: bold;
+        background: $animated-gradient;
+        background-size: 200% auto;
+        background-clip: border-box ;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 2s linear infinite;
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
       }
       .number {
         font-size: 1.5rem;
         padding-bottom: 40px;
       }
     }
+
+  }
+  .hours48 {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    height: 2.5rem;
+    &:hover {
+      color:black;
+    }
+  }
+
+  .form {
+    color: white;
+    font-family: "Century Gothic", serif;
+    margin-bottom: 16px;
   }
 }

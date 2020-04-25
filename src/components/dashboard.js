@@ -1,15 +1,39 @@
 import Icon from "./icon";
-import React from "react";
+import React, { useState } from "react";
 import { Rainy } from "./weatherIcons/icons";
+import TextField from "@material-ui/core/TextField";
 
-function Dashboard({ date, city, current }) {
+function Dashboard({
+  setCity,
+  getDataAction,
+  date,
+  city,
+  current,
+  showDrawer,
+}) {
+  const [search, setSearch] = useState("");
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+    console.log(search);
+  };
+
+  const onEnterPressed = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      event.stopPropagation();
+      setCity(search);
+      getDataAction(search);
+      console.log("submitted:", search);
+    }
+  };
   return (
     <div className="dashboard">
       <div className="temperature">
         <div className="actual">
           <div className="desc">
             <div className="svg">
-              <Rainy />
+              <Rainy className="icon" />
             </div>
             <div className="text">
               <div className="location">
@@ -27,7 +51,23 @@ function Dashboard({ date, city, current }) {
             {current && current.feels_like.toFixed(1)}&deg;
           </div>
         </div>
+        <Icon type={"48hours"} name={"hours48"} onClick={showDrawer} />
       </div>
+      <form onChange={handleChange} noValidate autoComplete="off">
+        <TextField
+          type={"text"}
+          name={"search"}
+          inputProps={{ style: { color: "rgb(81, 121, 190)" } }}
+          id="standard-basic"
+          label="Standard"
+          value={search}
+          onFocus={() => console.log("onFocus")}
+          onChange={(e) => handleChange(e)}
+          onKeyDown={(e) => {
+            onEnterPressed(e);
+          }}
+        />
+      </form>
     </div>
   );
 }
