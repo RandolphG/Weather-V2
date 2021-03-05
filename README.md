@@ -1,23 +1,28 @@
-![Weather App](https://media.giphy.com/media/QvjlUCkdbXJHVQk0IG/giphy.gif)
+# Weather Version #2
 
 
-## Install
+![Weather](https://github.com/RandolphG/Weather-V2/blob/master/public/_weather-v2.gif?raw=true)
 
 
-And then install dependencies with npm.
+## weather app version 2 
+
+### Installation process :
+
+- clone repo
+- navigate to project folder
+- install all dependencies with npm
+- run with npm
+
 
 ```bash
+$ git clone https://github.com/RandolphG/Weather-V2.git
 $ cd project
 $ npm i
 $ npm run electron 
 ```
 
 ## Features
-- users can choose a city (managed with redux)
-- displays the time, temperature, and wind info of the selected city 
-- refreshes data every 10 seconds
-- blue background if it's colder than usual than average this month
-- orange background if it's warmer than usual
+
 - custom CSS
 - electron 
 

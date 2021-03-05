@@ -38,9 +38,9 @@ function App() {
 
   useEffect(() => {
     getDataAction(city);
-    /*setTimeout(() => {
+    setTimeout(() => {
       setLoad(true);
-    }, 3000);*/
+    }, 3000);
     /*let interval = null;
     interval = setInterval(() => {
       getWeatherInfoAction(city);
@@ -49,40 +49,47 @@ function App() {
 
   /* data to propagate */
   const { current, daily, hourly } = weatherSelector;
-  /*
-  if (!load) {
-    return <Load />;
-  }*/
+
   return (
-    <div className="App">
-      <div className="background">
-        <div className="container">
-          <div className="main">
-            <Dashboard
-              getDataAction={getDataAction}
-              date={date}
-              city={city}
-              current={current}
-              setCity={setCity}
-              showDrawer={showDrawer()}
-              setVisible={setVisible}
-            />
-            <Carousel
-              current={current}
-              removeKeyStartsWith={removeKeyStartsWith}
-              convertTime={convertTime}
-            />
-            <Daily convertTime={convertTime} daily={daily} visible={visible} />
-            <SideBar
-              onClose={onClose}
-              visible={visible}
-              convertTime={convertTime}
-              hours={hourly}
-            />
+    <>
+      {load ? (
+        <div className="App">
+          <div className="background">
+            <div className="container">
+              <div className="main">
+                <Dashboard
+                  getDataAction={getDataAction}
+                  date={date}
+                  city={city}
+                  current={current}
+                  setCity={setCity}
+                  showDrawer={showDrawer()}
+                  setVisible={setVisible}
+                />
+                <Carousel
+                  current={current}
+                  removeKeyStartsWith={removeKeyStartsWith}
+                  convertTime={convertTime}
+                />
+                <Daily
+                  convertTime={convertTime}
+                  daily={daily}
+                  visible={visible}
+                />
+                <SideBar
+                  onClose={onClose}
+                  visible={visible}
+                  convertTime={convertTime}
+                  hours={hourly}
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <Load />
+      )}
+    </>
   );
 }
 

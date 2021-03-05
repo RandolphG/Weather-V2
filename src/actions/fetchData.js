@@ -1,4 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
 
 /**
  * fetch latitude & longitude
