@@ -24,7 +24,7 @@
     "electron-is-dev": "^1.2.0",
     "framer-motion": "^1.10.3",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "pretty-format": "^25.3.0",
     "gsap": "^3.2.6",
     "snapsvg-cjs": "0.0.6",
